@@ -10,6 +10,8 @@
 		8C9960EB25DF7BA0006B55CD /* WebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9960E125DF7BA0006B55CD /* WebSocket.framework */; };
 		8C9960F025DF7BA0006B55CD /* WebSocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9960EF25DF7BA0006B55CD /* WebSocketTests.swift */; };
 		8C9960F225DF7BA0006B55CD /* WebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C9960E425DF7BA0006B55CD /* WebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C9960FE25DF7C4D006B55CD /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9960FD25DF7C4D006B55CD /* WebSocket.swift */; };
+		8C9960FF25DF7C4D006B55CD /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9960FD25DF7C4D006B55CD /* WebSocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 		8C9960EA25DF7BA0006B55CD /* WebSocketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSocketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9960EF25DF7BA0006B55CD /* WebSocketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTests.swift; sourceTree = "<group>"; };
 		8C9960F125DF7BA0006B55CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C9960FD25DF7C4D006B55CD /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			children = (
 				8C9960E425DF7BA0006B55CD /* WebSocket.h */,
 				8C9960E525DF7BA0006B55CD /* Info.plist */,
+				8C9960FD25DF7C4D006B55CD /* WebSocket.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -147,6 +151,7 @@
 				TargetAttributes = {
 					8C9960E025DF7BA0006B55CD = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					8C9960E925DF7BA0006B55CD = {
 						CreatedOnToolsVersion = 12.4;
@@ -194,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9960FE25DF7C4D006B55CD /* WebSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9960FF25DF7C4D006B55CD /* WebSocket.swift in Sources */,
 				8C9960F025DF7BA0006B55CD /* WebSocketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +348,7 @@
 		8C9960F625DF7BA0006B55CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -356,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crumpf.WebSocket;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +373,7 @@
 		8C9960F725DF7BA0006B55CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -387,6 +397,7 @@
 		8C9960F925DF7BA0006B55CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WebSocketTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -404,6 +415,7 @@
 		8C9960FA25DF7BA0006B55CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WebSocketTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
