@@ -26,21 +26,22 @@ public class WebSocket: NSObject {
     weak var delegate: WebSocketDelegate?
     
     enum WebSocketError: Error {
+        case socketNotClosed
+        case socketNotOpen
         case invalidCloseCode
     }
     
     enum State {
         case closed
-        case closing
         case open
         case opening
     }
     
     private(set) var state = State.closed
     
-    func open(with url: URL, protocols: [String] = []) {
+    func open(with url: URL, protocols: [String] = []) throws {
         guard state == .closed else {
-            return
+            throw WebSocketError.socketNotClosed
         }
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         webSocketTask = session.webSocketTask(with: url, protocols: protocols)
@@ -51,13 +52,14 @@ public class WebSocket: NSObject {
     
     func close(withCloseCode closeCode: Int = URLSessionWebSocketTask.CloseCode.goingAway.rawValue) throws {
         guard state == .open else {
-            return
+            throw WebSocketError.socketNotOpen
         }
         guard let code = URLSessionWebSocketTask.CloseCode(rawValue: closeCode) else {
             throw WebSocketError.invalidCloseCode
         }
-        state = .closing
+        state = .closed
         webSocketTask?.cancel(with: code, reason: nil)
+        webSocketTask = nil
     }
     
     func send(_ string: String, completion: ((Error?) -> Void)? = nil) {

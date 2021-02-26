@@ -26,7 +26,7 @@ class WebSocketTests: XCTestCase {
         
         let expect = SocketExpectation()
         let socket = WebSocket(delegate: expect)
-        socket.open(with: url)
+        try! socket.open(with: url)
         
         wait(for: [expect.openExpectation], timeout: 10.0)
         
@@ -47,7 +47,7 @@ class WebSocketTests: XCTestCase {
         
         let expect = SocketExpectation()
         let socket = WebSocket(delegate: expect)
-        socket.open(with: url)
+        try! socket.open(with: url)
         
         wait(for: [expect.openExpectation], timeout: 10.0)
         
